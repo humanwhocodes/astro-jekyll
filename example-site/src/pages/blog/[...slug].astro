@@ -1,0 +1,25 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+import { formatJekyllPost } from "@humanwhocodes/astro-jekyll";
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts
+		.map(formatJekyllPost())
+		.map((post) => ({
+			params: { slug: post.slug },
+			props: post,
+		}));
+
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogPost {...post.data}>
+	<h1>{post.data.title}</h1>
+	<Content />
+</BlogPost>
