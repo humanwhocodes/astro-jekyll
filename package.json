@@ -1,0 +1,64 @@
+{
+  "name": "@humanwhocodes/astro-jekyll",
+  "version": "0.0.0",
+  "description": "Astro helpers for Jekyll compatibility.",
+  "main": "src/astro-jekyll.cjs",
+  "module": "src/astro-jekyll.js",
+  "type": "module",
+  "types": "dist/astro-jekyll.d.ts",
+  "exports": {
+    "require": "./src/astro-jekyll.cjs",
+    "import": "./src/astro-jekyll.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ]
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/nzakas"
+  },
+  "scripts": {
+    "build": "rollup -c && tsc",
+    "prepare": "npm run build",
+    "lint": "eslint src/ tests/",
+    "pretest": "npm run build",
+    "test": "c8 mocha tests/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humanwhocodes/astro-jekyll.git"
+  },
+  "keywords": [
+    "astro",
+    "jekyll",
+    "frontmatter",
+    "blog"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Nicholas C. Zaks",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^18.7.6",
+    "c8": "7.12.0",
+    "chai": "4.3.6",
+    "eslint": "8.21.0",
+    "lint-staged": "13.0.3",
+    "mocha": "9.2.2",
+    "rollup": "2.77.2",
+    "typescript": "4.7.4",
+    "yorkie": "2.0.0"
+  }
+}
