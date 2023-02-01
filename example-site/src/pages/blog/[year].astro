@@ -6,11 +6,35 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import { formatJekyllPost } from "@humanwhocodes/astro-jekyll";
 
-const posts = (await getCollection('blog'))
-	.map(formatJekyllPost())
-	.sort(
-		(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-	);
+
+export async function getStaticPaths() {
+
+	const posts = (await getCollection('blog'))
+		.map(formatJekyllPost())
+        .sort(
+	    	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+    	);
+
+    const postYears = new Map();
+    posts.forEach(post => {
+        const year = post.data.date.getFullYear();
+
+        if (!postYears.get(year)) {
+            postYears.set(year, []);
+        }
+
+        postYears.get(year).push(post);
+    });
+
+
+    return [...postYears.entries()].map(([year, posts]) => ({
+        params: { year },
+        props: { posts }
+    }));
+};
+
+const { year } = Astro.params;
+const { posts } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -38,7 +62,7 @@ const posts = (await getCollection('blog'))
 	<body>
 		<Header />
 		<main>
-			<h2>All Posts</h2>
+            <h2>Posts in {year}</h2>
 			<section>
 				<ul>
 					{
