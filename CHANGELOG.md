@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/humanwhocodes/astro-jekyll/compare/v1.0.0...v1.0.1) (2023-02-09)
+
+
+### Bug Fixes
+
+* Incorrect package exports ([62c0f35](https://www.github.com/humanwhocodes/astro-jekyll/commit/62c0f35d503d1cb48587372aba1ef4d6342d999e))
+
 ## 1.0.0 (2023-01-27)
 
 
