@@ -1,6 +1,6 @@
 {
   "name": "@humanwhocodes/astro-jekyll",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Astro helpers for Jekyll compatibility.",
   "main": "dist/astro-jekyll.cjs",
   "module": "dist/astro-jekyll.js",
