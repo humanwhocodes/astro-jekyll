@@ -24,7 +24,7 @@ describe("parseJekyllDateTime()", () => {
         it(`should return undefined for invalid datetime string: "${input}"`, () => {
             expect(parseJekyllDateTime(input)).to.be.undefined;
         });
-    })
+    });
 
     it("should add hours automatically when not supplied", () => {
         const input = "2023-01-02";
