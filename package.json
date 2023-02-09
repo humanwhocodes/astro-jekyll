@@ -2,13 +2,13 @@
   "name": "@humanwhocodes/astro-jekyll",
   "version": "1.0.0",
   "description": "Astro helpers for Jekyll compatibility.",
-  "main": "src/astro-jekyll.cjs",
-  "module": "src/astro-jekyll.js",
+  "main": "dist/astro-jekyll.cjs",
+  "module": "dist/astro-jekyll.js",
   "type": "module",
   "types": "dist/astro-jekyll.d.ts",
   "exports": {
-    "require": "./src/astro-jekyll.cjs",
-    "import": "./src/astro-jekyll.js"
+    "require": "./dist/astro-jekyll.cjs",
+    "import": "./dist/astro-jekyll.js"
   },
   "files": [
     "dist"
