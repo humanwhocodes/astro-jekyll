@@ -42,7 +42,7 @@ import {
     parseJekyllDateTime,
     formatJekyllPermalink,
     formatJekyllPost
-} from "@humanwhocodes/async-event-emitter";
+} from "@humanwhocodes/astro-jekyll";
 ```
 
 In general, you'll probably only ever need `formatJekyllPost()`, which you use after calling `getCollection()`, like this:
